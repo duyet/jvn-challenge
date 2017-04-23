@@ -1,0 +1,48 @@
+{% load static %} {% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JVN Challenge</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="vi">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> {% bootstrap_css %} {% bootstrap_javascript jquery=1 %}
+    <link rel="stylesheet" type="text/css" href="{% static 'challenge/css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'challenge/css/main.responsive.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'challenge/css/main_custom.css' %}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-static-top nav-thuengay display-desktop">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-1">
+                    <h1 class="logo">
+                    	<img src="{% static 'challenge/img/jvn-logo.png' %}" class="img-responsive" height="71" width="auto" style="padding:23px 0px; width: 71px !important">
+                    </h1>
+                </div>
+                <div class="col-md-5 btn-menu">
+                    <div class="menu-inner">
+                        <ul class="nav nav-menu">
+                            <li class="menu-item first">
+                                <a class="" title="Challenge" href="#">Challenge</a>
+                            </li>
+                            <li class="menu-item first">
+                                <a class="" title="Challenge" href="/scoreboard">Scoreboard</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 btn-connect">
+                    <div class="btn-partner">
+                        <a class="btn btn-vl btn-vl-medium btn-vl-green" href="/submit">Submit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>
