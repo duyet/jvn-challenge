@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+.alt-h2 {
+    font-size: 28px;
+    font-weight: 300
+}
+
+@media (min-width: 768px) {
+    .alt-h2 {
+        font-size:34px
+    }
+}
+
+@media (min-width: 1012px) {
+    .alt-h2 {
+        font-size:38px
+    }
+}
+
+.alt-h0,.alt-h1,.alt-h2,.alt-h3,.alt-h4,.alt-h5,.alt-h6,.alt-lead,
+h1, h2, h3, h4, h5, alt-h6 {
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif
+    font-weight: 300;
+}

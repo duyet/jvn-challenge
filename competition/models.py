@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 from django.conf import settings
 from tinymce import models as tinymce_models
-
+from django.utils.timezone import now
 
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Competition(models.Model):
@@ -26,7 +26,11 @@ class Competition(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    deadline = models.DateTimeField("Deadline")
     
+    def is_deadline(self):
+    	return now() > self.deadline
+
     def __str__(self):
         return self.title
 

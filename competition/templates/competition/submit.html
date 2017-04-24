@@ -1,6 +1,10 @@
 {% extends "jvnchallenge/base.html" %}
 {% load static %}
 
+{% block header_include %}
+    <link rel="stylesheet" type="text/css" href="{% static 'competition/css/base.css' %}" />
+{% endblock %}
+
 {% block title %}Submition{% endblock %}
 
 {% block content %}

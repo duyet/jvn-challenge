@@ -1,5 +1,10 @@
 {% extends "jvnchallenge/base.html" %}
 {% load static %}
+{% load humanize %}
+
+{% block header_include %}
+    <link rel="stylesheet" type="text/css" href="{% static 'competition/css/base.css' %}" />
+{% endblock %}
 
 {% block content %}
 
@@ -16,15 +21,25 @@
 			<thead>
 				<tr>
 					<td>#</td>
-					<td>Competition title</td>
+					<td>Competition</td>
 					<td>Created</td>
 			</thead>
 			<tbody>
 				{% for c in list_competitions %}
 					<tr>
 						<td>{{c.id}}</td>
-						<td><a href="{% url 'competition:detail' c.id %}">{{c.title}}</a></td>
-						<td>{{c.created_at}}</td>
+						<td>
+							<strong>
+								{% if not c.is_deadline %} <span class="label label-info">new</span> {% endif %}
+								<a href="{% url 'competition:detail' c.id %}">{{c.title}}</a>
+							</strong>
+							<br />
+							Deadline: {{ c.deadline | naturaltime }}
+							{% if c.is_deadline %} <span class="label label-default">Closed</span> {% endif %}
+						</td>
+						<td>
+							<time datetime="{{c.created_at}}">{{c.created_at | naturalday}}</time>
+						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
