@@ -2,6 +2,6 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from models import Submit
+from .models import Submit
 
 admin.site.register(Submit)
