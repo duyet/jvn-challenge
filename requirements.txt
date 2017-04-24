@@ -2,3 +2,4 @@ django==1.11
 django-bootstrap3
 gunicorn
 django-widget-tweaks
+django-tinymce
