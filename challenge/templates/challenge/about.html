@@ -1,0 +1,27 @@
+{% extends "jvnchallenge/base.html" %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+{% block header_include %}
+    <link rel="stylesheet" type="text/css" href="{% static 'challenge/css/page.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="featurette">
+    <div class="container text-center">
+      <h2 class="alt-h2 mt-0 mb-3">
+        JVN Challenge - Data Science
+      </h2>
+      <p class="mb-3 text-left">
+        <ul class="text-left">
+          <li>Author: Van-Duyet Le (<a href="http://duyet.net"><strong>@duyetdev</strong></a>)</li>
+          <li>
+        Report bugs: <a href="https://github.com/duyetdev/jvn-challenge">https://github.com/duyetdev/jvn-challenge</a>
+        </li>
+      </p>
+      
+    </div>
+  </div>
+
+{% endblock %}

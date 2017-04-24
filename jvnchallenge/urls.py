@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^', include('challenge.urls')),
+    url(r'^page/', include('challenge.urls', namespace='page')),
     
     url(r'^login/$', auth_views.login, {'template_name': 'accounts/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'accounts/logged_out.html', 'next_page': '/'}, name='logout'),
@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^submit/', include('submit.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^tinymce/', include('tinymce.urls')),
+
+    url(r'^', include('challenge.urls', namespace='challenge')),
 ]

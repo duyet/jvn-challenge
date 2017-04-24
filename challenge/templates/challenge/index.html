@@ -3,11 +3,23 @@
 
 {% block header_include %}
     <link rel="stylesheet" type="text/css" href="{% static 'challenge/css/main.css' %}" />
+
+    <style type="text/css">
+        .bottom-cover {
+            background-image: url({% static 'challenge/img/bg.png' %});
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 500px;
+            display: block;
+            margin: 0 auto;
+            background-position: 50% 0;
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
 
-<div class="featurette bg-gray-light">
+<div class="featurette bg-gray-light" style="">
     <div class="container text-center">
       <h2 class="alt-h2 mt-0 mb-3">
         JVN Challenge - Data Science
@@ -23,6 +35,8 @@
             <a href="{% url 'login' %}" class="btn btn-large btn-primary">Sign up</a>
         {% endif %}
       </p>
+
+      <div class="bottom-cover" style=""></div>
     </div>
   </div>
 

@@ -127,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'challege_index'
+LOGIN_REDIRECT_URL = 'competition:index'
 AUTH_USER_MODEL = 'accounts.User'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 

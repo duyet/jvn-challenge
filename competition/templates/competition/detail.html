@@ -27,6 +27,8 @@
 		    <li role="presentation" class="active"><a href="#Overview" aria-controls="home" role="tab" data-toggle="tab">Overview</a></li>
 		    <li role="presentation"><a href="#Data" aria-controls="profile" role="tab" data-toggle="tab">Data</a></li>
 		    <li role="presentation"><a href="#Prizes" aria-controls="messages" role="tab" data-toggle="tab">Prizes</a></li>
+		    <li role="presentation"><a href="#Ranking" aria-controls="messages" role="tab" data-toggle="tab">Ranking</a></li>
+		    <li role="presentation"><a href="#Submit" aria-controls="messages" role="tab" data-toggle="tab">Submit Predictions</a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
@@ -35,7 +37,6 @@
 				{{competition.content | safe}}
 
 				<hr>
-				<a class="btn btn-primary" href="{% url 'competition:submit' competition.id %}">Submit Predictions</a>
 		    </div>
 		    <div role="tabpanel" class="tab-pane" id="Data">
 		    	
@@ -62,6 +63,45 @@
 
 		    </div>
 		    <div role="tabpanel" class="tab-pane" id="Prizes">{{competition.prizes | safe}}</div>
+		    <div role="tabpanel" class="tab-pane" id="Ranking">No data</div>
+		    <div role="tabpanel" class="tab-pane" id="Submit">
+		    	{% if not user.email %}
+		    		<div class="alert alert-info">
+		    			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		    			<strong>Notice</strong> Please <a href="{% url 'login' %}"><strong>login / register</strong></a> to submit Predictions.
+		    		</div>
+		    	{% else %}
+		    		Make a submission for {{user.username}}
+		    	{% endif %}
+		    	<form action="" method="POST" class="form-horizontal" role="form">
+				{% csrf_token %}
+			
+					<div class="form-group">
+						<label for="inputSubmitFile" class="col-sm-2 control-label">Submit File:</label>
+						<div class="col-sm-10">
+							<input type="file" name="SubmitFile" id="inputSubmitFile" class="form-control" value="" required="required" pattern="" title="">
+						</div>
+					</div>
+			
+					<div class="form-group">
+						<div class="col-sm-10 col-sm-offset-2">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</div>
+				</form>
+
+		    	<hr>
+				<!-- <a class="btn btn-primary" href="{% url 'competition:submit' competition.id %}">Submit Predictions</a> -->
+
+				<div class="row">
+					<div class="col-md-5">
+						<h4>File Format</h4>
+
+						<p>Your submission should be in CSV format. You can upload this in a zip/gz/rar/7z archive, if you prefer.</p>
+					</div>
+				</div>
+
+			</div>
 		  </div>
 
 		</div>
