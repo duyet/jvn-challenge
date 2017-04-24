@@ -1,15 +1,43 @@
+{% extends "jvnchallenge/base.html" %}
 {% load static %}
-{% load bootstrap3 %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>JVN Scoreboard</title>
-	{% bootstrap_css %}
-	{% bootstrap_javascript jquery=1 %}
-	<link rel="stylesheet" type="text/css" href="{% static 'scoreboard/css/main.css' %}" />
-</head>
-<body>
+{% block header_include %}
+    <link rel="stylesheet" type="text/css" href="{% static 'challenge/css/main.css' %}" />
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="text-center">
+	    <h3>Scoreboard</h3>
+	</div>
+	</div>
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Username</td>
+					<td>Email</td>
+					<td>Ranking</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<tr>
+						<td>{{user.id}}</td>
+						<td>{{user.username}}</td>
+						<td>{{user.email}}</td>
+						<td><i>No data</i></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		
+	</div>
+</div>
+
+{% endblock %}
