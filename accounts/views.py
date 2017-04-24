@@ -32,8 +32,32 @@ class RegistrationView(CreateView):
         return redirect('accounts:register-done')
 
 def profile(request):
-	context = {
-		'user': request.user
-	}
+    context = {
+        'user': request.user
+    }
 
-	return render(request, 'accounts/profile.html', context)
+    return render(request, 'accounts/profile.html', context)
+
+def settings(request, setting = ''):
+    setting_pages = [ 'Profile', 'Account', ]
+
+    setting_pages = [ { 'alias': p.lower(), 'name': p} for p in setting_pages ]
+    print setting_pages[0]
+
+    if setting not in [p['alias'] for p in setting_pages]:
+        setting = setting_pages[0]['alias']
+
+    def get_page_title(page):
+        for p in setting_pages:
+            if page == p['alias']:
+                return p['name']
+        return None
+
+    context = {
+        'user': request.user,
+        'setting_pages': setting_pages,
+        'setting': setting,
+        'page_title': get_page_title(setting)
+    }
+
+    return render(request, 'accounts/settings/%s.html' % setting, context)

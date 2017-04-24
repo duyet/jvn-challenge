@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from .views import RegistrationView, profile
+from .views import RegistrationView, profile, settings
 from django.contrib.auth import views
 
 urlpatterns = [
@@ -19,4 +19,6 @@ urlpatterns = [
     # }, name='register-complete'),
 
     url(r'^profile/$', profile, name='profile'),
+    url(r'^settings/$', settings, name='settings'),
+    url(r'^settings/(?P<setting>[A-z-]+)/$', settings, name='settings_p'),
 ]

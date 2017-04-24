@@ -7,8 +7,23 @@
 
 {% block content %}
 
-<div class="text-center">
-    <h3>JVN Challenge</h3>
-</div>
+<div class="featurette bg-gray-light">
+    <div class="container text-center">
+      <h2 class="alt-h2 mt-0 mb-3">
+        JVN Challenge - Data Science
+      </h2>
+      <p class="f3 mb-3 mx-auto">
+        Learn, work, and play with data.
+      </p>
+      <p class="f3">
+        <a href="#" class="btn btn-large btn-default">Competitions</a>
+        {% if user.email %}
+            <a href="{% url 'scoreboard:index' %}" class="btn btn-large btn-primary">Scoreboard</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-large btn-primary">Sign up</a>
+        {% endif %}
+      </p>
+    </div>
+  </div>
 
 {% endblock %}

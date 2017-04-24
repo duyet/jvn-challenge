@@ -7,3 +7,88 @@
 .navbar-jvn {
 	background-color: #ffffff;
 }
+
+.featurette {
+    padding-top: 80px;
+    padding-bottom: 80px
+}
+
+.featurette {
+    padding-top: 50px;
+    padding-bottom: 50px
+}
+
+@media (min-width: 768px) {
+    .featurette {
+        padding-top:60px;
+        padding-bottom: 60px
+    }
+}
+
+@media (min-width: 1012px) {
+    .featurette {
+        padding-top:80px;
+        padding-bottom: 80px
+    }
+}
+
+.featurette-single {
+    padding-top: 30px
+}
+
+.featurette-lead {
+    margin-top: 0;
+    margin-bottom: 30px
+}
+
+.featurette-lead strong {
+    font-weight: 500
+}
+
+.featurette-lead code {
+    font-size: 90%
+}
+
+@media (min-width: 768px) {
+    .featurette-lead {
+        max-width:760px;
+        margin-bottom: 60px
+    }
+}
+
+.featurette-heading,.featurette-lead {
+    text-align: center
+}
+
+@media (min-width: 768px) {
+    .featurette-heading,.featurette-lead {
+        text-align:inherit
+    }
+}
+
+.featurette-lead-center {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center
+}
+
+@media (min-width: 1012px) {
+    .featurette-lead-center {
+        max-width:800px
+    }
+}
+
+.featurette-hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    clear: both
+}
+
+.bg-gray-light {
+    background-color: #fafbfc !important;
+}
+
+.navbar-jvn {
+    margin-bottom: 0;
+}

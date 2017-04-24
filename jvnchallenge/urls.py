@@ -25,7 +25,7 @@ urlpatterns = [
 
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 
-    url(r'^scoreboard/', include('scoreboard.urls')),
+    url(r'^scoreboard/', include('scoreboard.urls', namespace='scoreboard')),
     url(r'^submit/', include('submit.urls')),
     url(r'^admin/', admin.site.urls),
 ]
