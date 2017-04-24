@@ -1,0 +1,36 @@
+{% extends "jvnchallenge/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="text-center">
+	    <h3>Competitions</h3>
+	</div>
+	</div>
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Competition title</td>
+					<td>Created</td>
+			</thead>
+			<tbody>
+				{% for c in list_competitions %}
+					<tr>
+						<td>{{c.id}}</td>
+						<td><a href="{% url 'competition:detail' c.id %}">{{c.title}}</a></td>
+						<td>{{c.created_at}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		
+	</div>
+</div>
+
+{% endblock %}

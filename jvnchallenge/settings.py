@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'competition.apps.CompetitionConfig',
     'accounts.apps.AccountsConfig',
     'challenge.apps.ChallengeConfig',
     'scoreboard.apps.ScoreboardConfig',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,24 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'challege_index'
 AUTH_USER_MODEL = 'accounts.User'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins' : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,pagebreak",
+    'theme_advanced_buttons1' : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,fontselect,fontsizeselect,fullscreen,code,|,preview,image,media",
+    'theme_advanced_buttons2' : "table,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,|,forecolor,backcolor, emotions,|,pagebreak,paste",
+    'theme_advanced_buttons3 ': "",
+    'theme_advanced_toolbar_location' : "top",
+    'theme_advanced_toolbar_align' : "left",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 100,
+    'height' : 300,
+    'inline': True,
+    'insert_toolbar': 'quickimage quicktable',
+    'width': 700,
+    'resize': 'both'
+}

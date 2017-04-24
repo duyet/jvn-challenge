@@ -16,7 +16,7 @@
         Learn, work, and play with data.
       </p>
       <p class="f3">
-        <a href="#" class="btn btn-large btn-default">Competitions</a>
+        <a href="{% url 'competition:index' %}" class="btn btn-large btn-default">Competitions</a>
         {% if user.email %}
             <a href="{% url 'scoreboard:index' %}" class="btn btn-large btn-primary">Scoreboard</a>
         {% else %}

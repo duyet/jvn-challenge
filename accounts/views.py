@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView
 from django.shortcuts import render
 
+import hashlib
+
 from .forms import RegistrationForm
 from .models import User
 
@@ -32,6 +34,7 @@ class RegistrationView(CreateView):
         return redirect('accounts:register-done')
 
 def profile(request):
+    # request.user.md5_avatar = hashlib.sha224(request.user.email).hexdigest()
     context = {
         'user': request.user
     }

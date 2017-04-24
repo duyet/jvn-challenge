@@ -1,0 +1,72 @@
+{% extends "jvnchallenge/base.html" %}
+{% load static %}
+
+{% block header_css %}
+<style type="text/css">
+.tab-pane {
+	padding: 20px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+	<div class="row">
+		<div class="text-center">
+	    <h3>{{ competition.title }}</h3>
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div>
+
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active"><a href="#Overview" aria-controls="home" role="tab" data-toggle="tab">Overview</a></li>
+		    <li role="presentation"><a href="#Data" aria-controls="profile" role="tab" data-toggle="tab">Data</a></li>
+		    <li role="presentation"><a href="#Prizes" aria-controls="messages" role="tab" data-toggle="tab">Prizes</a></li>
+		  </ul>
+
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="Overview">
+				{{competition.content | safe}}
+
+				<hr>
+				<a class="btn btn-primary" href="{% url 'competition:submit' competition.id %}">Submit Predictions</a>
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="Data">
+		    	
+		    <table class="table" style="max-width: 600px">
+		    	<thead>
+		    		<tr>
+		    			<td>#</td>
+		    			<td>File name</td>
+		    			<td>File size</td>
+		    			<td>Download</td>
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+				    {% for d in competition.datasets.all %}
+				    	<tr>
+				    		<td>{{d.id}}</td>
+				    		<td><strong><a href="{% url 'competition:download' d.id %}">{{d.file_name}}</a></strong> ({{d.file}})</td> 
+				    		<td><i>{{d.file.size}} bytes</i></td>
+				    		<td><a href="{% url 'competition:download' d.id %}" class="btn btn-default">Download</a></td>
+				    	</tr>
+				    {% endfor %}
+		    	</tbody>
+		    </table>
+
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="Prizes">{{competition.prizes | safe}}</div>
+		  </div>
+
+		</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
