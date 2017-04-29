@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 
@@ -37,6 +38,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+@python_2_unicode_compatible
 class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
 
@@ -57,3 +59,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return self.username
 
+    def __str__(self):
+        return self.username or self.email

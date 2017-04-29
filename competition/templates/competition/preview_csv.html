@@ -1,0 +1,17 @@
+{% load static %} {% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Preview {{file_name}}</title>
+	{% bootstrap_css %}
+    
+</head>
+<body>
+
+<h4>{{file_name}}</h4>
+
+{{data_html|safe}}
+
+</body>
+</html>
