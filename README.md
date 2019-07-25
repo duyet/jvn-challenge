@@ -17,3 +17,9 @@ python manage.py runserver
 ```
 
 Go to: http://localhost:8000
+
+![](screenshot2.png)
+
+Admin: http://localhost:8000/admin
+
+![](screenshot3.png)
