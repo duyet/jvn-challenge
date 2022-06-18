@@ -11,7 +11,7 @@ gunicorn = "*"
 django-widget-tweaks = "*"
 django-tinymce = "*"
 python-magic = "*"
-Django = "==1.11.23"
+Django = "==4.0.5"
 libmagic = "*"
 pandas = "*"
 
