@@ -1,5 +1,5 @@
 pandas
-django==4.2.7
+django==4.2.8
 django-bootstrap3
 gunicorn
 django-widget-tweaks
